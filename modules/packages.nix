@@ -28,6 +28,7 @@
 
     # Dev tools
     bun
+    go_1_25            # global baseline; devShells add project-specific GOFLAGS/deps
     gradle
     phpPackages.composer
     # pyenv removed (Phase 5) — replaced by per-project devShells + direnv
