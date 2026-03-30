@@ -6,6 +6,7 @@ in
 {
   programs.zsh = {
     enable = true;
+    promptInit = ""; # disable default 'suse' prompt that overwrites starship
 
     interactiveShellInit = ''
       # ── Zinit plugin manager ──
@@ -24,18 +25,6 @@ in
       eval "$(pay-respects zsh)"
       eval "$(starship init zsh)"
       eval "$(zoxide init zsh)"
-
-      # ── Pyenv ──
-      export PYENV_ROOT="$HOME/.pyenv"
-      [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
-      eval "$(pyenv init -)"
-
-      # ── Goenv ──
-      export GOENV_ROOT="$HOME/.goenv"
-      export PATH="$GOENV_ROOT/bin:$PATH"
-      eval "$(goenv init -)"
-      export PATH="$GOROOT/bin:$PATH"
-      export PATH="$PATH:$GOPATH/bin"
 
       # ── Kaf completions ──
       if command -v kaf &>/dev/null; then
@@ -56,7 +45,7 @@ in
       alias dicker='docker'
       alias sail='[ -f sail ] && sh sail || sh vendor/bin/sail'
       alias assume='. assume'
-      alias brew='env PATH="''${PATH//$(pyenv root)\/shims:/}" brew'
+      alias brew='env PATH="''${PATH//\/nix\/store\/[^\/]*\/bin:/}" brew'
 
       # ── PATH additions (spaces in paths break environment.systemPath) ──
       export PATH="$PATH:/Users/eamon/Library/Application Support/JetBrains/Toolbox/scripts"
@@ -65,6 +54,9 @@ in
       [ -f ~/.config/zsh/secrets.zsh ] && source ~/.config/zsh/secrets.zsh
     '';
   };
+
+  # Direnv: auto-activate nix devShells on cd (includes nix-direnv for cached flake eval)
+  programs.direnv.enable = true;
 
   environment.variables = {
     EDITOR = "vim";

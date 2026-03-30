@@ -15,30 +15,17 @@
                             # change to "uninstall" once migration is complete
     };
 
-    # Third-party taps
+    # Third-party taps (only those still serving brew formulae or casks)
     taps = [
-      "birdayz/kaf"
       "common-fate/granted"
-      "dicklesworthstone/tap"
-      "huseyinbabal/tap"
-      "jackielii/tap"
-      "julien-cpsn/atac"
       "localstack/tap"
       "netbirdio/tap"
       "oven-sh/bun"
       "redpanda-data/tap"
-      "steveyegge/beads"
     ];
 
-    # Tap-only formulae (not available in nixpkgs, stay in brew)
-    brews = [
-      "birdayz/kaf/kaf"
-      "jackielii/tap/skhd-zig"
-      "huseyinbabal/tap/taws"
-      "dicklesworthstone/tap/bv"
-      "steveyegge/beads/bd"
-      "julien-cpsn/atac/atac"
-    ];
+    # All tap-only formulae migrated to nix (Phase 4) — none remaining
+    brews = [];
 
     # GUI applications — all managed via brew cask
     casks = [

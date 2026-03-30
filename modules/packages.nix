@@ -30,7 +30,7 @@
     bun
     gradle
     phpPackages.composer
-    pyenv             # Phase 5: replace with devShells
+    # pyenv removed (Phase 5) — replaced by per-project devShells + direnv
     pipx
     opencode
 
@@ -39,6 +39,7 @@
     influxdb2-cli
     mysql84
     redpanda-client   # rpk CLI
+    kaf               # Kafka CLI
 
     # Containers
     docker-client     # CLI only, daemon via Docker Desktop cask
@@ -49,6 +50,7 @@
     magic-wormhole
     terminal-notifier
     pay-respects      # thefuck replacement (thefuck removed from nixpkgs)
+    atac              # API client TUI (postman-like)
 
     # Graphics / docs
     graphviz
@@ -66,5 +68,11 @@
 
     # Cloud auth
     granted
+
+    # Tap-only packages (custom derivations in pkgs/)
+    skhd-zig          # hotkey daemon (zig rewrite)
+    taws              # terminal AWS TUI
+    bv                # beads viewer TUI
+    bd                # beads issue tracker
   ];
 }
