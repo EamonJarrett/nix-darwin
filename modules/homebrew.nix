@@ -31,6 +31,7 @@
     casks = [
       "amethyst"
       "bruno"
+      "cmux"
       "docker-desktop"
       "font-iosevka"
       "ghostty"
