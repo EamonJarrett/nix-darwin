@@ -24,6 +24,7 @@
     # Cloud / infra
     awscli2
     opentofu          # terraform-compatible, no license issues
+    snyk
     # localstack — broken in nixpkgs (plux test failure), keep in brew for now
 
     # Dev tools
@@ -73,7 +74,7 @@
     # Tap-only packages (custom derivations in pkgs/)
     skhd-zig          # hotkey daemon (zig rewrite)
     taws              # terminal AWS TUI
-    bv                # beads viewer TUI
+    claude-history    # Claude Code conversation history TUI
     bd                # beads issue tracker
   ];
 }

@@ -16,7 +16,7 @@
     customPackages = final: prev: {
       skhd-zig = final.callPackage ./pkgs/skhd-zig.nix { };
       taws     = final.callPackage ./pkgs/taws.nix { };
-      bv       = final.callPackage ./pkgs/bv.nix { };
+      claude-history = final.callPackage ./pkgs/claude-history.nix { };
       bd       = final.callPackage ./pkgs/bd.nix { };
 
       # nixpkgs-unstable direnv 2.37.1: CGO_ENABLED=0 but Makefile uses -linkmode=external
