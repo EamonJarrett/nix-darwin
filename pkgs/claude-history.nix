@@ -5,7 +5,7 @@ let
   assets = {
     aarch64-darwin = {
       url = "https://github.com/raine/claude-history/releases/download/v${version}/claude-history-darwin-arm64.tar.gz";
-      hash = "sha256-CJekO9e4iZNGea4TiuwswEBvzJ3yoykW26qo5t2JMOk=";
+      hash = "sha256-S71wAeGRCYItjX/zERiX0DWsaiYZHSLiYjduzlxK6dg=";
     };
     x86_64-darwin = {
       url = "https://github.com/raine/claude-history/releases/download/v${version}/claude-history-darwin-amd64.tar.gz";
