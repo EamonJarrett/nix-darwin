@@ -56,6 +56,8 @@
 
     # Graphics / docs
     graphviz
+    libjpeg_turbo     # cgo dep for vendor/github.com/pixiv/go-libjpeg (mls-data media app)
+    libjpeg_turbo.dev # headers (jpeglib.h) for cgo builds
 
     # System utilities
     logrotate

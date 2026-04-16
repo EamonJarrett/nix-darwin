@@ -60,7 +60,12 @@ in
 
   environment.variables = {
     EDITOR = "vim";
-    CGO_CFLAGS = "-Wno-gnu-folding-constant";
+    # -I/-L for libjpeg_turbo: vendor/github.com/pixiv/go-libjpeg hardcodes
+    # /opt/homebrew/opt/jpeg-turbo paths that don't exist on this nix-managed
+    # system; cgo merges these env flags in, letting clang/ld find the
+    # nix-store copy instead. Non-existent -I/-L dirs are ignored by the toolchain.
+    CGO_CFLAGS  = "-Wno-gnu-folding-constant -I${pkgs.libjpeg_turbo.dev}/include";
+    CGO_LDFLAGS = "-L${pkgs.libjpeg_turbo.out}/lib";
   };
 
   environment.systemPath = [
