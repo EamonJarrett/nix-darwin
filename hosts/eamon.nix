@@ -5,6 +5,7 @@
     ../modules/packages.nix
     ../modules/homebrew.nix
     ../modules/shell.nix
+    ../modules/caveman.nix
   ];
 
   # System identity

@@ -7,9 +7,13 @@
       url = "github:nix-darwin/nix-darwin";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    caveman-src = {
+      url = "github:JuliusBrussee/caveman";
+      flake = false;
+    };
   };
 
-  outputs = { self, nixpkgs, nix-darwin }:
+  outputs = { self, nixpkgs, nix-darwin, caveman-src }:
   let
     system = "aarch64-darwin";
     # Overlay: custom derivations for packages not in nixpkgs
@@ -26,6 +30,7 @@
   {
     darwinConfigurations."Eamons-MacBook-Pro" = nix-darwin.lib.darwinSystem {
       inherit system;
+      specialArgs = { inherit caveman-src; };
       modules = [
         { nixpkgs.overlays = [ customPackages ]; }
         ./hosts/eamon.nix
