@@ -40,8 +40,6 @@ in
       # ── Aliases (environment.shellAliases only works in bash, not zsh) ──
       alias gc='git branch --show-current'
       alias dt='dev-tool'
-      alias mds='mls-data-sync'
-      alias mdc='mls-data-cli'
       alias dicker='docker'
       alias sail='[ -f sail ] && sh sail || sh vendor/bin/sail'
       alias assume='. assume'
