@@ -1,15 +1,15 @@
 { lib, stdenvNoCC, fetchurl }:
 
 let
-  version = "0.62.0";
+  version = "1.0.3";
   assets = {
     aarch64-darwin = {
-      url = "https://github.com/steveyegge/beads/releases/download/v${version}/beads_${version}_darwin_arm64.tar.gz";
-      hash = "sha256-T0QcYWJAxwY6IlesJhONBurgYKlh8CnIGFWSjq5q4cA=";
+      url = "https://github.com/gastownhall/beads/releases/download/v${version}/beads_${version}_darwin_arm64.tar.gz";
+      hash = "sha256-/m5EZXUfRtnzpnDDz2VnFKFx5EyLwxj+GQVPUTuDBu0=";
     };
     x86_64-darwin = {
-      url = "https://github.com/steveyegge/beads/releases/download/v${version}/beads_${version}_darwin_amd64.tar.gz";
-      hash = "sha256-DDywCHRBIBCqPN8rbaEkckh+T1xSMVuvCHHKzL9FxeA=";
+      url = "https://github.com/gastownhall/beads/releases/download/v${version}/beads_${version}_darwin_amd64.tar.gz";
+      hash = "sha256-a9dawFYoil6LuyA3UOla9aRB1a0dIMpVEeYM1sgT5Us=";
     };
   };
   asset = assets.${stdenvNoCC.hostPlatform.system}
@@ -31,7 +31,7 @@ stdenvNoCC.mkDerivation {
 
   meta = {
     description = "AI-supervised issue tracker for coding workflows";
-    homepage = "https://github.com/steveyegge/beads";
+    homepage = "https://github.com/gastownhall/beads";
     license = lib.licenses.mit;
     platforms = lib.platforms.darwin;
     mainProgram = "bd";

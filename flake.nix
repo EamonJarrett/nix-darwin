@@ -21,6 +21,10 @@
       skhd-zig = final.callPackage ./pkgs/skhd-zig.nix { };
       claude-history = final.callPackage ./pkgs/claude-history.nix { };
       bd       = final.callPackage ./pkgs/bd.nix { };
+      gascity  = final.callPackage ./pkgs/gascity.nix { };
+      dolt     = final.callPackage ./pkgs/dolt.nix { };
+      graphify = final.callPackage ./pkgs/graphify.nix { };
+      rtk      = final.callPackage ./pkgs/rtk.nix { };
 
       # nixpkgs-unstable direnv 2.37.1: CGO_ENABLED=0 but Makefile uses -linkmode=external
       direnv = prev.direnv.overrideAttrs (old: { env = (old.env or {}) // { CGO_ENABLED = "1"; }; });

@@ -64,5 +64,10 @@
     skhd-zig          # hotkey daemon (zig rewrite)
     claude-history    # Claude Code conversation history TUI
     bd                # beads issue tracker
+    gascity           # gc CLI (Gas City supervisor); needs dolt + flock at runtime
+    dolt              # required by gascity (>= 1.86.2)
+    flock             # file locking; required by gascity
+    graphify          # graphifyy: codebase → knowledge graph (Python/JS/Rust/C#/SQL only; other langs need tree-sitter-* grammars added to nixpkgs)
+    rtk               # Rust Token Killer: shell command output compressor (Claude Code hook via `rtk init -g`)
   ];
 }
