@@ -36,6 +36,7 @@ in
       # ── Aliases (environment.shellAliases only works in bash, not zsh) ──
       alias gc='git branch --show-current'
       alias dicker='docker'
+      alias assume='. assume'   # granted: must source to export AWS_* into current shell
       alias brew='env PATH="''${PATH//\/nix\/store\/[^\/]*\/bin:/}" brew'
 
       # ── Secrets (NOT in nix store) ──

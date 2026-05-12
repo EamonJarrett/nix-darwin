@@ -27,6 +27,7 @@
     go_1_25            # global baseline; devShells add project-specific GOFLAGS/deps
     pipx
     opencode
+    granted           # `assume` CLI for AWS role assumption (common-fate)
     rustup            # iOS targets added at runtime: rustup target add aarch64-apple-ios{,-sim} x86_64-apple-ios
     cocoapods
     maestro           # mobile UI automation CLI (maestro.mobile.dev) — Layer 4 iOS regression flows
