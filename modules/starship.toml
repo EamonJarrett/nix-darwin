@@ -1,0 +1,6 @@
+# Starship prompt config — managed by nix-darwin (modules/shell.nix)
+# Edit this file then `darwin-rebuild switch --flake .` to apply.
+# Schema: https://starship.rs/config-schema.json
+"$schema" = "https://starship.rs/config-schema.json"
+
+# Empty body = starship defaults. Add overrides below as needed.

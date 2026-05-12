@@ -46,8 +46,12 @@ in
   # Direnv: auto-activate nix devShells on cd (includes nix-direnv for cached flake eval)
   programs.direnv.enable = true;
 
+  # Starship prompt config — committed at modules/starship.toml, surfaced at /etc.
+  environment.etc."starship.toml".source = ./starship.toml;
+
   environment.variables = {
     EDITOR = "vim";
+    STARSHIP_CONFIG = "/etc/starship.toml";
   };
 
   environment.systemPath = [
