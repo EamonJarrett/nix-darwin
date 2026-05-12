@@ -8,15 +8,16 @@ System configuration managed by nix-darwin with flakes.
 ~/.config/nix-darwin/
   flake.nix           # Entry point: inputs, overlays, system config
   flake.lock          # Pinned dependency versions
-  hosts/eamon.nix     # Machine-specific: hostname, platform, nix settings
+  hosts/
+    eamon.nix             # Per-machine config for the `eamon` user
+    eamonjarrett-mann.nix # Per-machine config for the `eamonjarrett-mann` user
   modules/
     packages.nix      # CLI tools (nix-managed)
     homebrew.nix      # GUI apps (brew cask) + taps
     shell.nix         # Zsh config, shell init, direnv, env vars, PATH
   pkgs/               # Custom derivations for packages not in nixpkgs
     skhd-zig.nix
-    taws.nix
-    bv.nix
+    claude-history.nix
     bd.nix
 ```
 
@@ -27,7 +28,12 @@ System configuration managed by nix-darwin with flakes.
 After editing any `.nix` file:
 
 ```bash
+# eamon machine (uses the "Eamons-MacBook-Pro" hostname alias)
 darwin-rebuild switch --flake ~/.config/nix-darwin
+
+# eamonjarrett-mann machine (specify the host explicitly because both
+# machines share the same hostname, so the default lookup is ambiguous)
+darwin-rebuild switch --flake ~/.config/nix-darwin#eamonjarrett-mann
 ```
 
 Open a new shell to pick up changes to `interactiveShellInit`.

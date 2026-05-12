@@ -1,7 +1,8 @@
-{ pkgs, ... }:
+{ pkgs, userConfig, ... }:
 
 let
   fzfShare = "${pkgs.fzf}/share/fzf";
+  inherit (userConfig) home;
 in
 {
   programs.zsh = {
@@ -46,7 +47,7 @@ in
       alias brew='env PATH="''${PATH//\/nix\/store\/[^\/]*\/bin:/}" brew'
 
       # ── PATH additions (spaces in paths break environment.systemPath) ──
-      export PATH="$PATH:/Users/eamon/Library/Application Support/JetBrains/Toolbox/scripts"
+      export PATH="$PATH:${home}/Library/Application Support/JetBrains/Toolbox/scripts"
 
       # ── Secrets (NOT in nix store) ──
       [ -f ~/.config/zsh/secrets.zsh ] && source ~/.config/zsh/secrets.zsh
@@ -67,8 +68,8 @@ in
   };
 
   environment.systemPath = [
-    "/Users/eamon/.local/bin"
-    "/Users/eamon/.bun/bin"
+    "${home}/.local/bin"
+    "${home}/.bun/bin"
   ];
 
   # Removed environment.shellAliases — they don't work in zsh, moved to interactiveShellInit above

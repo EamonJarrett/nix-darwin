@@ -2,8 +2,8 @@
 
 let
   userConfig = {
-    user = "eamon";
-    home = "/Users/eamon";
+    user = "eamonjarrett-mann";
+    home = "/Users/eamonjarrett-mann";
   };
   inherit (userConfig) user home;
 in

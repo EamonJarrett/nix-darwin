@@ -1,8 +1,7 @@
-{ pkgs, lib, ... }:
+{ pkgs, lib, userConfig, ... }:
 
 let
-  user = "eamon";
-  home = "/Users/${user}";
+  inherit (userConfig) user home;
   claudeDir = "${home}/.claude";
   repoDir = "${home}/.config/nix-darwin/.claude";
 

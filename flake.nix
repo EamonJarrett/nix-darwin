@@ -26,15 +26,27 @@
       # nixpkgs-unstable direnv 2.37.1: CGO_ENABLED=0 but Makefile uses -linkmode=external
       direnv = prev.direnv.overrideAttrs (old: { env = (old.env or {}) // { CGO_ENABLED = "1"; }; });
     };
-  in
-  {
-    darwinConfigurations."Eamons-MacBook-Pro" = nix-darwin.lib.darwinSystem {
+
+    mkHost = hostFile: nix-darwin.lib.darwinSystem {
       inherit system;
       specialArgs = { inherit caveman-src; };
       modules = [
         { nixpkgs.overlays = [ customPackages ]; }
-        ./hosts/eamon.nix
+        hostFile
       ];
+    };
+  in
+  {
+    darwinConfigurations = {
+      eamon              = mkHost ./hosts/eamon.nix;
+      eamonjarrett-mann  = mkHost ./hosts/eamonjarrett-mann.nix;
+
+      # Both machines share the hostname "Eamons-MacBook-Pro", so
+      # `darwin-rebuild switch --flake .` (which looks up the hostname)
+      # is ambiguous. The original machine keeps the hostname alias for
+      # the eamon user; the other machine must invoke explicitly with
+      # `darwin-rebuild switch --flake .#eamonjarrett-mann`.
+      "Eamons-MacBook-Pro" = self.darwinConfigurations.eamon;
     };
   };
 }

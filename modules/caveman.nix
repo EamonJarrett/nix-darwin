@@ -1,8 +1,7 @@
-{ pkgs, lib, caveman-src, ... }:
+{ pkgs, lib, caveman-src, userConfig, ... }:
 
 let
-  user = "eamon";
-  home = "/Users/${user}";
+  inherit (userConfig) user home;
   marketplaceLink = "${home}/.claude/plugins/marketplaces/caveman";
   knownFile = "${home}/.claude/plugins/known_marketplaces.json";
 
