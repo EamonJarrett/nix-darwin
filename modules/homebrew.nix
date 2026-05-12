@@ -1,4 +1,4 @@
-{ ... }:
+{ lib, userConfig, ... }:
 
 {
   # Let nix-darwin manage Homebrew declaratively.
@@ -24,7 +24,7 @@
     brews = [];
 
     # Mac App Store apps (nix-darwin installs `mas` automatically)
-    masApps = {
+    masApps = lib.optionalAttrs userConfig.installXcode {
       Xcode = 497799835;
     };
 

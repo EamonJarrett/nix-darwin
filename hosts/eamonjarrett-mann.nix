@@ -4,6 +4,7 @@ let
   userConfig = {
     user = "eamonjarrett-mann";
     home = "/Users/eamonjarrett-mann";
+    installXcode = true;
   };
   inherit (userConfig) user home;
 in

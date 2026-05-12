@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, lib, userConfig, ... }:
 
 {
   environment.systemPackages = with pkgs; [
@@ -29,7 +29,6 @@
     opencode
     rustup            # iOS targets added at runtime: rustup target add aarch64-apple-ios{,-sim} x86_64-apple-ios
     cocoapods
-    xcodegen          # regenerates src-tauri/gen/apple/project.yml for Tauri iOS builds
     maestro           # mobile UI automation CLI (maestro.mobile.dev) — Layer 4 iOS regression flows
 
     # Containers
@@ -69,5 +68,7 @@
     flock             # file locking; required by gascity
     graphify          # graphifyy: codebase → knowledge graph (Python/JS/Rust/C#/SQL only; other langs need tree-sitter-* grammars added to nixpkgs)
     rtk               # Rust Token Killer: shell command output compressor (Claude Code hook via `rtk init -g`)
+  ] ++ lib.optionals userConfig.installXcode [
+    xcodegen          # regenerates src-tauri/gen/apple/project.yml for Tauri iOS builds; requires Xcode
   ];
 }
