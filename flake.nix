@@ -19,7 +19,6 @@
     # Overlay: custom derivations for packages not in nixpkgs
     customPackages = final: prev: {
       skhd-zig = final.callPackage ./pkgs/skhd-zig.nix { };
-      taws     = final.callPackage ./pkgs/taws.nix { };
       claude-history = final.callPackage ./pkgs/claude-history.nix { };
       bd       = final.callPackage ./pkgs/bd.nix { };
 

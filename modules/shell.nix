@@ -27,11 +27,6 @@ in
       eval "$(starship init zsh)"
       eval "$(zoxide init zsh)"
 
-      # ── Kaf completions ──
-      if command -v kaf &>/dev/null; then
-        kaf completion zsh > "''${fpath[1]}/_kaf" 2>/dev/null
-      fi
-
       # ── SSH agent ──
       eval "ssh-add ~/.ssh/keys/good_key" &> /dev/null
 
@@ -40,14 +35,8 @@ in
 
       # ── Aliases (environment.shellAliases only works in bash, not zsh) ──
       alias gc='git branch --show-current'
-      alias dt='dev-tool'
       alias dicker='docker'
-      alias sail='[ -f sail ] && sh sail || sh vendor/bin/sail'
-      alias assume='. assume'
       alias brew='env PATH="''${PATH//\/nix\/store\/[^\/]*\/bin:/}" brew'
-
-      # ── PATH additions (spaces in paths break environment.systemPath) ──
-      export PATH="$PATH:${home}/Library/Application Support/JetBrains/Toolbox/scripts"
 
       # ── Secrets (NOT in nix store) ──
       [ -f ~/.config/zsh/secrets.zsh ] && source ~/.config/zsh/secrets.zsh
@@ -59,12 +48,6 @@ in
 
   environment.variables = {
     EDITOR = "vim";
-    # -I/-L for libjpeg_turbo: vendor/github.com/pixiv/go-libjpeg hardcodes
-    # /opt/homebrew/opt/jpeg-turbo paths that don't exist on this nix-managed
-    # system; cgo merges these env flags in, letting clang/ld find the
-    # nix-store copy instead. Non-existent -I/-L dirs are ignored by the toolchain.
-    CGO_CFLAGS  = "-Wno-gnu-folding-constant -I${pkgs.libjpeg_turbo.dev}/include";
-    CGO_LDFLAGS = "-L${pkgs.libjpeg_turbo.out}/lib";
   };
 
   environment.systemPath = [

@@ -17,37 +17,28 @@
 
     # Third-party taps (only those still serving brew formulae or casks)
     taps = [
-      "common-fate/granted"
-      "localstack/tap"
-      "netbirdio/tap"
       "oven-sh/bun"
-      "redpanda-data/tap"
     ];
 
     # All tap-only formulae migrated to nix (Phase 4) — none remaining
     brews = [];
 
+    # Mac App Store apps (nix-darwin installs `mas` automatically)
+    masApps = {
+      Xcode = 497799835;
+    };
+
     # GUI applications — all managed via brew cask
     casks = [
       "amethyst"
-      "bruno"
-      "cmux"
-      "docker-desktop"
       "font-iosevka"
       "ghostty"
-      "goland"
-      "jetbrains-toolbox"
       "jordanbaird-ice"
       "kitty"
       "maccy"
       "macdown"
-      "netbird-ui"
       "ollama-app"
-      "postman"
-      "proxyman"
       "slack"
-      "studio-3t"
-      "tableplus"
       "vscodium"
       "wave"
       "wezterm"

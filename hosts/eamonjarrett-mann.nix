@@ -14,6 +14,7 @@ in
     ../modules/shell.nix
     ../modules/caveman.nix
     ../modules/claude.nix
+    ../modules/colima.nix
   ];
 
   # Make userConfig available to every module in this host

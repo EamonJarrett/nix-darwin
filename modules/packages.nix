@@ -21,30 +21,22 @@
     zsh-autosuggestions
     zinit
 
-    # Cloud / infra
-    awscli2
-    opentofu          # terraform-compatible, no license issues
-    snyk
-    # localstack — broken in nixpkgs (plux test failure), keep in brew for now
-
     # Dev tools
     bun
+    nodejs_20         # node + npm; Tauri/vite/playwright pipeline (mobile CI pinned to Node 20)
     go_1_25            # global baseline; devShells add project-specific GOFLAGS/deps
-    gradle
-    phpPackages.composer
-    # pyenv removed (Phase 5) — replaced by per-project devShells + direnv
     pipx
     opencode
-
-    # Data / messaging
-    apacheKafka
-    influxdb2-cli
-    mysql84
-    redpanda-client   # rpk CLI
-    kaf               # Kafka CLI
+    rustup            # iOS targets added at runtime: rustup target add aarch64-apple-ios{,-sim} x86_64-apple-ios
+    cocoapods
+    xcodegen          # regenerates src-tauri/gen/apple/project.yml for Tauri iOS builds
+    maestro           # mobile UI automation CLI (maestro.mobile.dev) — Layer 4 iOS regression flows
 
     # Containers
-    docker-client     # CLI only, daemon via Docker Desktop cask
+    docker-client     # CLI; daemon runs in colima VM
+    colima            # docker daemon in a lightweight Linux VM
+    docker-compose
+    docker-buildx
 
     # Networking / misc
     inetutils         # telnet, ftp, etc.
@@ -56,8 +48,6 @@
 
     # Graphics / docs
     graphviz
-    libjpeg_turbo     # cgo dep for vendor/github.com/pixiv/go-libjpeg (mls-data media app)
-    libjpeg_turbo.dev # headers (jpeglib.h) for cgo builds
 
     # System utilities
     logrotate
@@ -70,12 +60,8 @@
     nsnake
     myman
 
-    # Cloud auth
-    granted
-
     # Tap-only packages (custom derivations in pkgs/)
     skhd-zig          # hotkey daemon (zig rewrite)
-    taws              # terminal AWS TUI
     claude-history    # Claude Code conversation history TUI
     bd                # beads issue tracker
   ];
