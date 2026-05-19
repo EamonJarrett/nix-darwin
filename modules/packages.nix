@@ -6,6 +6,7 @@
     git
     git-crypt
     gnupg
+    sops
     jq
     ripgrep
     fzf
@@ -28,6 +29,7 @@
     pipx
     opencode
     granted           # `assume` CLI for AWS role assumption (common-fate)
+    awscli2           # `aws` CLI
     rustup            # iOS targets added at runtime: rustup target add aarch64-apple-ios{,-sim} x86_64-apple-ios
     cocoapods
     maestro           # mobile UI automation CLI (maestro.mobile.dev) — Layer 4 iOS regression flows
@@ -45,6 +47,7 @@
     terminal-notifier
     pay-respects      # thefuck replacement (thefuck removed from nixpkgs)
     atac              # API client TUI (postman-like)
+    redpanda-client   # rpk: Redpanda/Kafka CLI (nixpkgs v25.3.10; brew tracks newer 26.x)
 
     # Graphics / docs
     graphviz
