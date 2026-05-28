@@ -27,6 +27,7 @@
     nodejs_20         # node + npm; Tauri/vite/playwright pipeline (mobile CI pinned to Node 20)
     go_1_25            # global baseline; devShells add project-specific GOFLAGS/deps
     pipx
+    uv                 # fast Python package/project manager
     opencode
     granted           # `assume` CLI for AWS role assumption (common-fate)
     awscli2           # `aws` CLI
