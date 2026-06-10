@@ -12,7 +12,7 @@ in
         "--foreground"
         "--cpu"     "4"
         "--memory"  "8"
-        "--disk"    "60"
+        "--disk"    "100"
       ];
       RunAtLoad = true;
       KeepAlive = true;
