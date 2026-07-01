@@ -31,6 +31,7 @@
     opencode
     granted           # `assume` CLI for AWS role assumption (common-fate)
     awscli2           # `aws` CLI
+    influxdb2-cli     # `influx` CLI for InfluxDB v2
     rustup            # iOS targets added at runtime: rustup target add aarch64-apple-ios{,-sim} x86_64-apple-ios
     cocoapods
     maestro           # mobile UI automation CLI (maestro.mobile.dev) — Layer 4 iOS regression flows
