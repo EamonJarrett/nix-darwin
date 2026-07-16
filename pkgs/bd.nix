@@ -1,15 +1,15 @@
 { lib, stdenvNoCC, fetchurl }:
 
 let
-  version = "1.0.3";
+  version = "1.1.0";
   assets = {
     aarch64-darwin = {
       url = "https://github.com/gastownhall/beads/releases/download/v${version}/beads_${version}_darwin_arm64.tar.gz";
-      hash = "sha256-/m5EZXUfRtnzpnDDz2VnFKFx5EyLwxj+GQVPUTuDBu0=";
+      hash = "sha256-xC4k2Dslj3up9SptLV9rBVhp3+eAcWUFWYixLn6oxWQ=";
     };
     x86_64-darwin = {
       url = "https://github.com/gastownhall/beads/releases/download/v${version}/beads_${version}_darwin_amd64.tar.gz";
-      hash = "sha256-a9dawFYoil6LuyA3UOla9aRB1a0dIMpVEeYM1sgT5Us=";
+      hash = "sha256-XX0w/a3PASt+DBkzpizfrvEG4lYVCbkE5QpnM2Ic+No=";
     };
   };
   asset = assets.${stdenvNoCC.hostPlatform.system}
