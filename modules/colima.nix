@@ -10,6 +10,7 @@ in
         "${pkgs.colima}/bin/colima"
         "start"
         "--foreground"
+        "--runtime" "incus"
         "--cpu"     "4"
         "--memory"  "8"
         "--disk"    "100"
