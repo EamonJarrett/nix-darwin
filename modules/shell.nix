@@ -58,6 +58,8 @@ in
   environment.systemPath = [
     "${home}/.local/bin"
     "${home}/.bun/bin"
+    # brew mysql-client is keg-only (no symlink into /opt/homebrew/bin)
+    "/opt/homebrew/opt/mysql-client/bin"
   ];
 
   # Removed environment.shellAliases — they don't work in zsh, moved to interactiveShellInit above

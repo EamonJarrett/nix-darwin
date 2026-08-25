@@ -15,6 +15,7 @@
     tmux
     zellij
     difftastic
+    mermaid-cli
 
     # Shell / prompt
     starship
@@ -24,8 +25,9 @@
 
     # Dev tools
     bun
-    nodejs_20         # node + npm; Tauri/vite/playwright pipeline (mobile CI pinned to Node 20)
+    nodejs_22         # node + npm; Tauri/vite/playwright pipeline (was nodejs_20; bumped 2026-07 — Node 20 EOL, nixpkgs marks insecure. CI still on Node 20.)
     go_1_25            # global baseline; devShells add project-specific GOFLAGS/deps
+    gopls              # Go language server (LSP)
     pipx
     uv                 # fast Python package/project manager
     opencode
