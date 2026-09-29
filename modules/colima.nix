@@ -27,4 +27,24 @@ in
       };
     };
   };
+
+  launchd.user.agents.colima-docker = {
+    serviceConfig = {
+      ProgramArguments = [
+        "${pkgs.colima}/bin/colima"
+        "start"
+        "--foreground"
+        "--profile" "docker"
+      ];
+      RunAtLoad = true;
+      KeepAlive = true;
+      ThrottleInterval = 30;
+      StandardOutPath = "${home}/Library/Logs/colima-docker.log";
+      StandardErrorPath = "${home}/Library/Logs/colima-docker.log";
+      EnvironmentVariables = {
+        PATH = "/run/current-system/sw/bin:/usr/bin:/bin:/usr/sbin:/sbin";
+        HOME = home;
+      };
+    };
+  };
 }

@@ -1,17 +1,17 @@
 { lib, stdenvNoCC, fetchurl }:
 
 let
-  version = "0.0.17";
+  version = "0.2.0";
+  # 0.2.0 ships a .app bundle; the daemon binary lives inside it.
+  bin = "skhd.app/Contents/MacOS/skhd";
   assets = {
     aarch64-darwin = {
       url = "https://github.com/jackielii/skhd.zig/releases/download/v${version}/skhd-arm64-macos.tar.gz";
-      hash = "sha256-1lvvQoUOCxpus07L5KsG1l30GI+LP+KkvLGQN12KFhs=";
-      bin = "skhd-arm64-macos";
+      hash = "sha256-C0jY80n2tzhJ4zj+jfpdwUB39Yuu6Y4B4qp4TWchs0A=";
     };
     x86_64-darwin = {
       url = "https://github.com/jackielii/skhd.zig/releases/download/v${version}/skhd-x86_64-macos.tar.gz";
-      hash = "sha256-TUBa0GUy1ObJ+yFcS4TT+y0cPYYdCdxdBYvj7R2q7Pw=";
-      bin = "skhd-x86_64-macos";
+      hash = "sha256-I1ROsPIz9jckCzlJ/9SSKSkZUuoV6gD0jr0q8f/ASH8=";
     };
   };
   asset = assets.${stdenvNoCC.hostPlatform.system}
@@ -28,7 +28,7 @@ stdenvNoCC.mkDerivation {
   sourceRoot = ".";
 
   installPhase = ''
-    install -Dm755 ${asset.bin} $out/bin/skhd
+    install -Dm755 ${bin} $out/bin/skhd
   '';
 
   meta = {

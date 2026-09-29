@@ -8,12 +8,12 @@
 # until their tree-sitter-* grammar lands in nixpkgs (or is added here).
 python3Packages.buildPythonApplication rec {
   pname = "graphifyy";
-  version = "0.7.6";
+  version = "0.9.71";
   pyproject = true;
 
   src = fetchPypi {
     inherit pname version;
-    hash = "sha256-3zcRMw0MXJSOHOMI0Arx1zrnfGprVhokhVTJLcDiD4M=";
+    hash = "sha256-rLoBcshZkhOScwEQpeu3Q1LFBLylgmlcKqDqmrxWgCw=";
   };
 
   build-system = [ python3Packages.setuptools ];
@@ -22,6 +22,7 @@ python3Packages.buildPythonApplication rec {
     "tree-sitter-typescript"
     "tree-sitter-go"
     "tree-sitter-java"
+    "tree-sitter-groovy"
     "tree-sitter-c"
     "tree-sitter-cpp"
     "tree-sitter-ruby"
@@ -43,13 +44,15 @@ python3Packages.buildPythonApplication rec {
 
   dependencies = with python3Packages; [
     networkx
-    datasketch
+    numpy
     rapidfuzz
     tree-sitter
     tree-sitter-python
     tree-sitter-javascript
     tree-sitter-rust
     tree-sitter-c-sharp
+    tree-sitter-bash
+    tree-sitter-json
   ];
 
   pythonImportsCheck = [ "graphify" ];

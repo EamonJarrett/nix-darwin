@@ -1,15 +1,15 @@
 { lib, stdenvNoCC, fetchurl }:
 
 let
-  version = "1.0.0";
+  version = "1.4.2";
   assets = {
     aarch64-darwin = {
       url = "https://github.com/gastownhall/gascity/releases/download/v${version}/gascity_${version}_darwin_arm64.tar.gz";
-      hash = "sha256-S2zb/9UotLKYUQj82OIS0m3s7uzHjkso+VoJx+MJFFk=";
+      hash = "sha256-E+czJ1R0Ju24nz1cc5dbRW3cfG8zNq5zsswXdhr1O0w=";
     };
     x86_64-darwin = {
       url = "https://github.com/gastownhall/gascity/releases/download/v${version}/gascity_${version}_darwin_amd64.tar.gz";
-      hash = "sha256-1051hj7RacC12/a2X5My980BbbEyEcyKQ4+A57glMZw=";
+      hash = "sha256-C6IWTok1vDfMdW7wKPPy3Yq3iy2hBLNjcnZrJPNuFh4=";
     };
   };
   asset = assets.${stdenvNoCC.hostPlatform.system}

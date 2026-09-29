@@ -108,7 +108,7 @@ Language-specific toolchains (Go, Python, etc.) are NOT installed globally. Inst
       devShells = forAllSystems (pkgs: {
         default = pkgs.mkShell {
           packages = with pkgs; [
-            go_1_25
+            go_1_26
             python312
             # add more packages here
           ];
@@ -148,7 +148,7 @@ nix search nixpkgs python
 nix search nixpkgs go_1
 
 # Check if a specific package exists
-nix eval --raw 'nixpkgs#go_1_25.version'
+nix eval --raw 'nixpkgs#go_1_26.version'
 ```
 
 ### Force re-evaluation of a devShell

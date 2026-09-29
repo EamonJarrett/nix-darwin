@@ -4,16 +4,16 @@
 # misses the upstream GC/writer deadlock fix in dolthub/dolt commit ccf7bde206.
 # Bump the version + hashes here when gascity raises its floor.
 let
-  version = "1.87.0";
+  version = "2.3.5";
   assets = {
     aarch64-darwin = {
       url = "https://github.com/dolthub/dolt/releases/download/v${version}/dolt-darwin-arm64.tar.gz";
-      hash = "sha256-c1oI0la4gANLxTwg+cO0BJbyZrkIKtv7CngzbrdzNP8=";
+      hash = "sha256-rR43cKzLt+igWQaSKOrSK99vJ1kTEhJFG0T1GGYbjkA=";
       arch = "arm64";
     };
     x86_64-darwin = {
       url = "https://github.com/dolthub/dolt/releases/download/v${version}/dolt-darwin-amd64.tar.gz";
-      hash = "sha256-YZfNn7uRD6jib5atzzlhzTcLbTiEN2YZ5MW2ywlhUn0=";
+      hash = "sha256-/8/N3gDBS9Q8StfHG2IQ+/szcXuyNxI5jLLTbPbcph8=";
       arch = "amd64";
     };
   };
