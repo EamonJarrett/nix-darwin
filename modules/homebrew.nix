@@ -21,7 +21,8 @@
     ];
 
     # All tap-only formulae migrated to nix (Phase 4) — none remaining
-    brews = [];
+    # incus: client for colima's incus runtime; nixpkgs incus is Linux-only
+    brews = [ "incus" ];
 
     # Mac App Store apps (nix-darwin installs `mas` automatically)
     masApps = lib.optionalAttrs userConfig.installXcode {

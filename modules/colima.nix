@@ -22,7 +22,8 @@ in
       StandardErrorPath = "${home}/Library/Logs/colima.log";
       EnvironmentVariables = {
         # colima shells out to docker/lima/qemu — make sure the nix profile is on PATH
-        PATH = "/run/current-system/sw/bin:/usr/bin:/bin:/usr/sbin:/sbin";
+        # /opt/homebrew/bin needed for the incus client (brew-only; nixpkgs incus is Linux-only)
+        PATH = "/run/current-system/sw/bin:/opt/homebrew/bin:/usr/bin:/bin:/usr/sbin:/sbin";
         HOME = home;
       };
     };
